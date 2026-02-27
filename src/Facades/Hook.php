@@ -1,6 +1,6 @@
 <?php
 
-namespace Poslaravel\LaravelHooks\Facades;
+namespace LaravelHooks\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static bool     remove_all_filters(string $tag, int|false $priority = false)
  * @method static string   current_filter()
  *
- * @see \Poslaravel\LaravelHooks\Engine\Hooks
+ * @see \LaravelHooks\Engine\Hooks
  */
 class Hook extends Facade
 {

@@ -20,18 +20,18 @@
     },
     "autoload": {
         "psr-4": {
-            "Poslaravel\\LaravelHooks\\": "src/"
+            "LaravelHooks\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Poslaravel\\LaravelHooks\\Tests\\": "tests/"
+            "LaravelHooks\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
-            "providers": ["Poslaravel\\LaravelHooks\\LaravelHooksServiceProvider"],
-            "aliases": {"Hook": "Poslaravel\\LaravelHooks\\Facades\\Hook"}
+            "providers": ["LaravelHooks\\LaravelHooksServiceProvider"],
+            "aliases": {"Hook": "LaravelHooks\\Facades\\Hook"}
         }
     },
     "config": {

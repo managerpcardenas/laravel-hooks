@@ -1,8 +1,8 @@
 <?php
 
-namespace Poslaravel\LaravelHooks\Tests;
+namespace LaravelHooks\Tests;
 
-use Poslaravel\LaravelHooks\Engine\Hooks;
+use LaravelHooks\Engine\Hooks;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -20,7 +20,6 @@ class HooksTest extends TestCase
         $ref = new \ReflectionClass($this->hooks);
         foreach (['filters', 'merged_filters', 'actions', 'current_filter'] as $prop) {
             $p = $ref->getProperty($prop);
-            $p->setAccessible(true);
             $p->setValue($this->hooks, []);
         }
     }
@@ -48,9 +47,15 @@ class HooksTest extends TestCase
     public function it_executes_callbacks_in_priority_order(): void
     {
         $order = [];
-        $this->hooks->add_action('test.priority', function () use (&$order) { $order[] = 'second'; }, 20);
-        $this->hooks->add_action('test.priority', function () use (&$order) { $order[] = 'first';  }, 5);
-        $this->hooks->add_action('test.priority', function () use (&$order) { $order[] = 'third';  }, 50);
+        $this->hooks->add_action('test.priority', function () use (&$order) {
+            $order[] = 'second';
+        }, 20);
+        $this->hooks->add_action('test.priority', function () use (&$order) {
+            $order[] = 'first';
+        }, 5);
+        $this->hooks->add_action('test.priority', function () use (&$order) {
+            $order[] = 'third';
+        }, 50);
         $this->hooks->do_action('test.priority');
         $this->assertSame(['first', 'second', 'third'], $order);
     }
@@ -84,7 +89,9 @@ class HooksTest extends TestCase
     public function it_removes_a_specific_action(): void
     {
         $fired = false;
-        $cb = function () use (&$fired) { $fired = true; };
+        $cb = function () use (&$fired) {
+            $fired = true;
+        };
         $this->hooks->add_action('test.remove', $cb);
         $this->hooks->remove_action('test.remove', $cb);
         $this->hooks->do_action('test.remove');

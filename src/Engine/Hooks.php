@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Poslaravel\LaravelHooks\Engine;
+namespace LaravelHooks\Engine;
 
 /**
  * PHP Hooks Engine

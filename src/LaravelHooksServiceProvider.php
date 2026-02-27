@@ -1,8 +1,8 @@
 <?php
 
-namespace Poslaravel\LaravelHooks;
+namespace LaravelHooks;
 
-use Poslaravel\LaravelHooks\Engine\Hooks;
+use LaravelHooks\Engine\Hooks;
 use Illuminate\Support\ServiceProvider;
 
 /**
