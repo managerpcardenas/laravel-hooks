@@ -1,0 +1,43 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "managerpcardenas/laravel-hooks",
+    "description": "WordPress-style Hooks & Filters Pub/Sub for Laravel 12. Fork of voku/php-hooks with full Laravel integration.",
+    "keywords": ["laravel", "hooks", "filters", "actions", "pub-sub"],
+    "type": "library",
+    "license": "GPL-3.0",
+    "authors": [
+        {"name": "Ohad Raz", "role": "Original Author"},
+        {"name": "Lars Moelleken", "role": "PHP Port"},
+        {"name": "managerpcardenas", "homepage": "https://github.com/managerpcardenas", "role": "Laravel 12 Integration"}
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^11.0|^12.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0",
+        "orchestra/testbench": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Poslaravel\\LaravelHooks\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Poslaravel\\LaravelHooks\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": ["Poslaravel\\LaravelHooks\\LaravelHooksServiceProvider"],
+            "aliases": {"Hook": "Poslaravel\\LaravelHooks\\Facades\\Hook"}
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
